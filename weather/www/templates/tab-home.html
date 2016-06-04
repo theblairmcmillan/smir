@@ -1,5 +1,6 @@
-<ion-view title="Home" Adding cache-view="false">
+<ion-view title="Smir" Adding cache-view="false" class="mainView">
   <ion-content class="has-header">
+  <input type="search" placeholder="Search by city" class="ng-valid ng-dirty ng-valid-parse ng-touched" href="#" ng-click="changeCity('{{city.id}}')">
     <!-- Display current location's weather data-->
     <h3>{{city}}</h3>
     <h5><weather-icon icon="current.icon" id="current-icon"></weather-icon> {{current.currently.summary}}</h5>
