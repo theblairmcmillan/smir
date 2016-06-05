@@ -1,11 +1,12 @@
 <ion-view title="Cities">
   <ion-content class="has-header">
-      <h1>Select city</h1>
+      <h4>Your Cities</h4>
         <ion-list>
               <ion-item ng-repeat="city in cities">
               <span href="#" ng-click="changeCity('{{city.id}}')">
                 {{city.name}}
               </span> 
+              <button class="button button-small button-outline button-assertive">Delete</button>
               </ion-item>
         </ion-list>
    </ion-content>
