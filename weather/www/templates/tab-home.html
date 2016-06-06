@@ -1,19 +1,19 @@
 <ion-view title="Smir" Adding cache-view="false" class="mainView">
-  <ion-content class="has-header">
-   <div class="list list-inset">
-    <label class="item item-input">
-       <i class="icon ion-search placeholder-icon"></i>
-       <input type="text" placeholder="Search">
-       <button class="button button-positive">
-         <i class="icon ion-ios-search"></i>
-       </button>
-    </label>
-  </div>
-<!-- Display current location's weather data-->
-  <h3>{{city}}</h3>
-  	<h5><weather-icon icon="current.icon" id="current-icon"></weather-icon> {{current.currently.summary}}</h5>
-    <p>The temperature now is</p>  
-  	<span class="large">{{current.currently.temperature}} ° </span>
+	<ion-nav-title><img src="../cloud.png" height="50px"></ion-nav-title>
+	  <ion-content class="has-header">
+	   <div class="list list-inset">
+	    <label class="item item-input">
+	       <i class="icon ion-search placeholder-icon"></i>
+	       <input type="text" placeholder="Search">
+	       <button class="button button-positive">
+	         <i class="icon ion-ios-search"></i>
+	       </button>
+	    </label>
+	  </div>
+	<!-- Display current location's weather data-->
+	  <h3>{{city}}</h3>
+	  	<h5><weather-icon icon="current.icon" id="current-icon"></weather-icon> {{current.currently.summary}}</h5>
+    <p>Current temperature <class="large">{{current.currently.temperature}} °F</p>
   </ion-content>
 </ion-view>
 

@@ -1,3 +1,7 @@
-mainView {
-	background-color: blue;
-}
+h3,h5, p {
+	text-align: center;
+};
+
+#lists > button {
+	text-align: right;
+};
