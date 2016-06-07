@@ -8,7 +8,7 @@
    </ion-content>
  </ion-view> -->
 
-<ion-view title="Smir">
+<!-- <ion-view title="Smir">
 <ion-content class="has-header">
 <div class="bar bar-header item-input-inset">
   <label class="item-input-wrapper">
@@ -24,3 +24,40 @@
     </ion-list>
 <ion-content>
 </ion-view>
+ -->
+
+ <!-- NEW STUFF BELOW -->
+    <ion-view title="Smirr">
+    <ion-content class="has-header">
+    <ion-header-bar class="bar-dark">
+      <!-- <div class="buttons"> -->
+        <button class="button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+      <h1 class="title">                  </h1>
+      <div class="buttons">
+        <button class="button" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">Reorder</button>
+      </div>
+    </ion-header-bar>
+
+ 
+
+     <!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
+      
+      <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+        <ion-item ng-repeat="city in cities" item="item" href="#/item/{{item.id}}" class="item-remove-animate"> Item {{ city.name }}
+          <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)"></ion-delete-button>
+          <ion-option-button class="button-assertive"
+                             ng-click="edit(item)">
+            Edit
+          </ion-option-button>
+          <ion-option-button class="button-calm"
+                             ng-click="share(item)">
+            Share
+          </ion-option-button>
+          <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+        </ion-item>
+
+      </ion-list>
+
+       <ion-content>
+  </ion-view>
+      

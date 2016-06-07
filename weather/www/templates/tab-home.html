@@ -1,26 +1,25 @@
 <ion-view title="Smir" Adding cache-view="false" class="mainView">
-	<ion-nav-title>Smir</ion-nav-title>
+	<ion-nav-title>Smirr</ion-nav-title>
 	  <ion-content class="has-header">
-	   <div class="list list-inset"></div>
-	<!-- Display current location's weather data-->
+	   <div class="list list-inset"></div> <!--This is here for space -->
+		<!-- Display current location's weather data-->
 	  <h3>{{city}}</h3>
-	  <h5><weather-icon icon="current.icon" id="current-icon"></weather-icon> {{current.currently.summary}}</h5>
+	  <h5><weather-icon icon="current.icon" id="current-icon"></weather-icon>{{current.currently.summary}}</h5>
       <p>Current temperature <class="large">{{current.currently.temperature}} °F</p>
       
+      <!--The info card header-->
       <div class="list card">
   		<div class="item item-avatar">
-    	<img src="../rain.jpg">
-    	<h2>PISHING DOON</h2>
-    	<p>To rain heavily</p>
-  	  </div>
-
-  	  <div class="item item-body">
-    	<img class="full-image" src="../rain.jpg">
-    	<p>
-	      Totally pishing doon wie rain man.
-    	</p>
-	  </div>
-	</div>
+    		<img src="../speaker.png">
+    		<h2>PISHING DOON</h2>
+    		<p>To rain heavily</p>
+  	  	</div>
+		<!--card body-->
+  	  	<div class="item item-body">
+    		<img class="full-image" src="../rain.jpg">
+    		<p>Totally pishing doon wie rain man.</p>
+	  	</div>
+	</div> <!-- End of full card-->
    </ion-content>
 </ion-view>
 
