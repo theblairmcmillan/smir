@@ -1,19 +1,26 @@
 <ion-view title="Smir" Adding cache-view="false" class="mainView">
-	<ion-nav-title><img src="../cloud.png" height="50px"></ion-nav-title>
+	<ion-nav-title>Smir</ion-nav-title>
 	  <ion-content class="has-header">
-	   <div class="list list-inset">
-	    <label class="item item-input">
-	       <i class="icon ion-search placeholder-icon"></i>
-	       <input type="text" placeholder="Search">
-	       <button class="button button-positive">
-	         <i class="icon ion-ios-search"></i>
-	       </button>
-	    </label>
-	  </div>
+	   <div class="list list-inset"></div>
 	<!-- Display current location's weather data-->
 	  <h3>{{city}}</h3>
-	  	<h5><weather-icon icon="current.icon" id="current-icon"></weather-icon> {{current.currently.summary}}</h5>
-    <p>Current temperature <class="large">{{current.currently.temperature}} °F</p>
-  </ion-content>
+	  <h5><weather-icon icon="current.icon" id="current-icon"></weather-icon> {{current.currently.summary}}</h5>
+      <p>Current temperature <class="large">{{current.currently.temperature}} °F</p>
+      
+      <div class="list card">
+  		<div class="item item-avatar">
+    	<img src="../rain.jpg">
+    	<h2>PISHING DOON</h2>
+    	<p>To rain heavily</p>
+  	  </div>
+
+  	  <div class="item item-body">
+    	<img class="full-image" src="../rain.jpg">
+    	<p>
+	      Totally pishing doon wie rain man.
+    	</p>
+	  </div>
+	</div>
+   </ion-content>
 </ion-view>
 

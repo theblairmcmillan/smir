@@ -1,4 +1,4 @@
-<ion-view title="Cities">
+<!-- <ion-view title="Smir">
   <ion-content class="has-header">
     <ion-list>
       <ion-item id="lists" ng-repeat="city in cities">
@@ -6,6 +6,21 @@
       </ion-item>
     </ion-list>
    </ion-content>
- </ion-view>
+ </ion-view> -->
 
-
+<ion-view title="Smir">
+<ion-content class="has-header">
+<div class="bar bar-header item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios-search placeholder-icon"></i>
+    <input type="search" placeholder="Searh City">
+  </label>
+  <button class="button button-clear">Search</button>
+</div>
+<ion-list>
+      <ion-item id="lists" ng-repeat="city in cities">
+        <span href="#" ng-click="changeCity('{{city.id}}')">{{city.name}}</span> 
+      </ion-item>
+    </ion-list>
+<ion-content>
+</ion-view>

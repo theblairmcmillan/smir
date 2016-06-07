@@ -10,4 +10,4 @@ I wanted to take some time to work within a framework that was aimed at mobile d
 
 # Technologies 
 
-Ionic - Angular - Forecast io API - Cordova 
+Ionic - Angular - Forecastio API - Cordova 

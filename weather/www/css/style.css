@@ -1,7 +1,15 @@
-h3,h5, p {
+body,html {
+	font-family: Futura, serif;
+	letter-spacing: 4px;
+	color: #2D1E2F;
 	text-align: center;
-};
+}
+
+h3 {
+	color: #028090;
+}
 
 #lists > button {
 	text-align: right;
 };
+
