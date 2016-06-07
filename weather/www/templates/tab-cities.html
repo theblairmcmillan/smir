@@ -43,7 +43,7 @@
      <!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
       
       <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
-        <ion-item ng-repeat="city in cities" item="item" href="#/item/{{item.id}}" class="item-remove-animate"> Item {{ city.name }}
+        <ion-item ng-repeat="city in cities" item="item" href="#/item/{{item.id}}" class="item-remove-animate">{{ city.name }}
           <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)"></ion-delete-button>
           <ion-option-button class="button-assertive"
                              ng-click="edit(item)">
