@@ -1,5 +1,5 @@
 'use strict';
-
+// CONTACTING FORCASTio AND GETTING CURRENT WEATHER JSON 
 var forecastioWeather = ['$q', '$resource', '$http', 'FORECASTIO_KEY', 
   function($q, $resource, $http, FORECASTIO_KEY) {
   var url = 'https://api.forecast.io/forecast/' + FORECASTIO_KEY + '/';
@@ -16,13 +16,13 @@ var forecastioWeather = ['$q', '$resource', '$http', 'FORECASTIO_KEY',
     //getAtLocation: function(lat, lng) {
     getCurrentWeather: function(lat, lng) {
       return $http.jsonp(url + lat + ',' + lng + '?callback=JSON_CALLBACK');
+
     }
   }
 }];
 
 
-
-
+// DEFAULT LIST OF CITIES IN CITIES TAB
 angular.module('starter.services', ['ngResource'])
 .factory('Cities', function() {
 var cities = [
@@ -32,7 +32,7 @@ var cities = [
     { id: 3, name: 'Los Angeles' ,lat: 34.0500 , lgn: 118.2500 },
     { id: 4, name: 'Dallas' ,lat: 32.7758 , lgn:96.7967  },
     { id: 5, name: 'Frankfurt' ,lat:50.1117 , lgn: 8.6858 },
-    { id: 6, name: 'New Delhi' ,lat:28.6100 , lgn: 77.2300 }
+    { id: 6, name: 'Reykjavik' ,lat:64.1265 , lgn: 21.8174 }
   ];
 
   return {
@@ -45,6 +45,9 @@ var cities = [
     }
   }
 }).
+
+
+// SETTING MIAMI AS THE DEFAULT LOCATION ON LOAD -> DATASTORE
 factory('DataStore', function() {
     //create datastore with default values
     var DataStore = {
