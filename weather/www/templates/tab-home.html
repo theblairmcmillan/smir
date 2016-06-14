@@ -4,22 +4,23 @@
 	   <div class="list list-inset"></div> <!--This is here for space -->
 		<!-- Display current location's weather data-->
 	  <h3>{{city}}</h3>
-	  <h5><weather-icon icon="current.icon" id="current-icon"></weather-icon>{{current.currently.summary}}</h5>
+	  <h5><weather-icon  id="current-icon"></weather-icon>{{current.currently.icon}}</h5>
       <p>Current temperature <class="large">{{current.currently.temperature}} °F</p>
-      
+       
       <!--The info card header-->
       <div class="list card">
   		<div class="item item-avatar">
     		<img src="../speaker.png">
-    		<h2>PISHING DOON</h2>
-    		<p>To rain heavily</p>
+    		<h2>Chankin</h2>
+    		<p>very cold</p>
   	  	</div>
 		<!--card body-->
   	  	<div class="item item-body">
     		<img class="full-image" src="../rain.jpg">
-    		<p>Totally pishing doon wie rain man.</p>
+    		<p>It's chankin outside.</p>
 	  	</div>
 	</div> <!-- End of full card-->
+	<p>TIME {{current.currently.time * 1000 | date: 'HH:mm:ss'}}</p>
    </ion-content>
 </ion-view>
 
