@@ -20,6 +20,9 @@ var forecastioWeather = ['$q', '$resource', '$http', 'FORECASTIO_KEY',
   }
 }];
 
+
+
+
 angular.module('starter.services', ['ngResource'])
 .factory('Cities', function() {
 var cities = [

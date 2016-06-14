@@ -27,3 +27,6 @@ angular.module('starters.controllers', ['ionic'])
 }).controller('SettingsCtrl', function($scope){
     
 });
+
+
+
