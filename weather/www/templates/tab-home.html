@@ -1,11 +1,26 @@
 <ion-view title="Smir" Adding cache-view="false" class="mainView">
-  <ion-content class="has-header">
-  <input type="search" placeholder="Search by city" class="ng-valid ng-dirty ng-valid-parse ng-touched" href="#" ng-click="changeCity('{{city.id}}')">
-    <!-- Display current location's weather data-->
-    <h3>{{city}}</h3>
-    <h5><weather-icon icon="current.icon" id="current-icon"></weather-icon> {{current.currently.summary}}</h5>
-    <p>The temperature now is</p>  
-  <span class="large">{{current.currently.temperature}} ° </span>
-  </ion-content>
+	<ion-nav-title>Smirr</ion-nav-title>
+	  <ion-content class="has-header">
+	   <div class="list list-inset"></div> <!--This is here for space -->
+		<!-- Display current location's weather data-->
+	  <h3>{{city}}</h3>
+	  <h5><weather-icon  id="current-icon"></weather-icon>{{current.currently.summary}}</h5>
+      <p>Current temperature <class="large">{{current.currently.temperature | number:0}} °F</p>
+       
+      <!--The info card header-->
+      <div class="list card">
+  		<div class="item item-avatar">
+    		<img src="../speaker.png">
+    		<h2>{{scottishData.header}}</h2>
+    		<p>{{scottishData.explainer}}</p>
+  	  	</div>
+		<!--card body-->
+  	  	<div class="item item-body">
+    		<img class="full-image" src="../rain.jpg">
+    		<p>{{scottishData.phrase}}</p>
+	  	</div>
+	</div> <!-- End of full card-->
+	<p>TIME {{current.currently.time * 1000 | date: 'HH:mm'}}</p>
+   </ion-content>
 </ion-view>
 
