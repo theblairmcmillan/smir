@@ -16,11 +16,11 @@
   	  	</div>
 		<!--card body-->
   	  	<div class="item item-body">
-    		<img class="full-image" src="../rain.jpg">
+    		<img class="full-image" src={{scottishData.pic}}>
     		<p>{{scottishData.phrase}}</p>
 	  	</div>
 	</div> <!-- End of full card-->
-	<p>TIME {{current.currently.time * 1000 | date: 'HH:mm'}}</p>
+	<p>{{current.currently.time * 1000 | date: 'HH:mm'}}</p>
    </ion-content>
 </ion-view>
 

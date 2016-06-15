@@ -17,9 +17,9 @@ angular.module('starter.controllers', ['ionic'])
       $scope.current = resp.data;
       console.log('GOT CURRENT', $scope.current);
 
-      if($scope.current.currently.temperature < 32){
+      if($scope.current.currently.temperature <= 45){
         $scope.scottishData = scottishInfo.chankin;
-      } else if($scope.current.currently.temperature >= 32 && $scope.current.currently.temperature <= 72) {
+      } else if($scope.current.currently.temperature >= 46 && $scope.current.currently.temperature <= 72) {
         $scope.scottishData = scottishInfo.naeBad;
       } else {
         $scope.scottishData = scottishInfo.roastin;
@@ -39,6 +39,7 @@ angular.module('starter.controllers', ['ionic'])
         DataStore.latitude = data.coords.latitude;
         DataStore.longitude = data.coords.longitude;
         callWeatherAPI(data.coords.latitude, data.coords.longitude)
+        $scope.city = "Nashville";
       });
     } else {
       alert("Geolocation is not supported by this browser.");
@@ -52,19 +53,22 @@ angular.module('starter.controllers', ['ionic'])
   // OBJECTS OF SCOTTISH DATA 
   var scottishInfo = {
     chankin : {
-      header: "Chankin!",
+      header: "Baw Chankin!",
       explainer: "very cold",
-      phrase: "it's pure chanking ootside."
+      phrase: "it's pure chanking ootside.",
+      pic:  "img/cold.jpg"
     },
     roastin : {
       header: "Roastin!",
       explainer: "very warm",
-      phrase: "It's heavy roastin ootside."
+      phrase: "It's heavy roastin ootside.",
+      pic: "img/melted.jpg"
     },
     naeBad : {
       header: "Nae Bad",
       explainer: "fairly pleasant",
-      phrase: "It's nae bad the day."
+      phrase: "It's nae bad the day.",
+      pic: "img/coos.jpg"
     }
   };
 
