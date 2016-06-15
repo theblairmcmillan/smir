@@ -16,7 +16,7 @@ angular.module('starter.controllers', ['ionic'])
     .then(function(resp) {
       $scope.current = resp.data;
       console.log('GOT CURRENT', $scope.current);
-3
+
       if($scope.current.currently.temperature <= 46){
         $scope.scottishData = scottishInfo.chankin;
       } else if($scope.current.currently.temperature >= 47 && $scope.current.currently.temperature <= 72) {
@@ -56,19 +56,22 @@ angular.module('starter.controllers', ['ionic'])
       header: "Baw Chankin!",
       explainer: "very cold",
       phrase: "it's pure chanking ootside.",
-      pic:  "img/cold.jpg"
+      pic:  "img/cold.jpg",
+      clip: "audio/chankin.m4a"
     },
     roastin : {
       header: "Roastin!",
       explainer: "very warm",
       phrase: "It's heavy roastin ootside.",
-      pic: "img/melted.jpg"
+      pic: "img/melted.jpg",
+      clip: "audio/roastin.m4a"
     },
     naeBad : {
       header: "Nae Bad",
       explainer: "fairly pleasant",
       phrase: "It's nae bad the day.",
-      pic: "img/coos.jpg"
+      pic: "img/coos.jpg",
+      clip: "audio/naebad.m4a",
     }
   };
 

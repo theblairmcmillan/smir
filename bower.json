@@ -1,0 +1,25 @@
+{
+  "name": "weatherApp",
+  "homepage": "https://github.com/theblairmcmillan/smir",
+  "authors": [
+    "BlairMcMillan <theblairmcmillan@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-audio": "^1.7.2",
+    "ion-sound": "ionsound#^3.0.7"
+  },
+  "devDependencies": {
+    "angular-audio": "^1.7.2"
+  }
+}

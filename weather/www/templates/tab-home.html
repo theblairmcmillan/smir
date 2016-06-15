@@ -10,7 +10,7 @@
       <!--The info card header-->
       <div class="list card">
   		<div class="item item-avatar">
-    		<img src="../speaker.png">
+    		<img src="../speaker.png" ng-click='audio.play()' ng-audio={{scottishData.clip}}>
     		<h2>{{scottishData.header}}</h2>
     		<p>{{scottishData.explainer}}</p>
   	  	</div>
