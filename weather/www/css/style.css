@@ -13,3 +13,6 @@ h3 {
 	text-align: right;
 };
 
+#lists, .item-remove-animate {
+	margin-top: 45px;
+}

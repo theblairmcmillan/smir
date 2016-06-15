@@ -3,35 +3,51 @@ angular.module('starter.controllers', ['ionic'])
 .controller('HomeCtrl', function($scope,$state,Weather,DataStore) {
     //read default settings into scope
   console.log('inside home');
-  $scope.city  = DataStore.city;
-  var latitude  =  DataStore.latitude;
+  $scope.city = DataStore.city;
+  var latitude =  DataStore.latitude;
   var longitude = DataStore.longitude;
+  var hitCount = DataStore.getHitCount();
   $scope.current;
   $scope.scottishData;
 
+  function callWeatherAPI(lat, long) {
+    //CALL GET CURRENT WEATHER FROM WEATHER FACTORY
+    Weather.getCurrentWeather(lat, long)
+    .then(function(resp) {
+      $scope.current = resp.data;
+      console.log('GOT CURRENT', $scope.current);
 
-  //CALL GET CURRENT WEATHER FROM WEATHER FACTORY
-  Weather.getCurrentWeather(latitude,longitude).then(function(resp) {
-    $scope.current = resp.data;
-    console.log('GOT CURRENT', $scope.current);
+      if($scope.current.currently.temperature < 32){
+        $scope.scottishData = scottishInfo.chankin;
+      } else if($scope.current.currently.temperature >= 32 && $scope.current.currently.temperature <= 72) {
+        $scope.scottishData = scottishInfo.naeBad;
+      } else {
+        $scope.scottishData = scottishInfo.roastin;
+      }
+      //SHOW ERROR IF CAN'T GET WEATHER 
+    }, function(error) {
+      alert('Unable to get current conditions');
+      console.error(error);
+    });
+  };
 
 
-    if($scope.current.currently.temperature < 32){
-      $scope.scottishData = scottishInfo.chankin;
-    } else if($scope.current.currently.temperature >= 32 && $scope.current.currently.temperature <= 72) {
-      $scope.scottishData = scottishInfo.naeBad;
+  if (hitCount === 0) {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(data){
+        console.log(">>>>>>>", data);
+        DataStore.latitude = data.coords.latitude;
+        DataStore.longitude = data.coords.longitude;
+        callWeatherAPI(data.coords.latitude, data.coords.longitude)
+      });
     } else {
-      $scope.scottishData = scottishInfo.roastin;
-    }
-  
-  
+      alert("Geolocation is not supported by this browser.");
+    };
+    DataStore.setHitCount();
+  } else {
+    callWeatherAPI(latitude, longitude)
+  };
 
-    //SHOW ERROR IF CAN'T GET WEATHER 
-  }, function(error) {
-    alert('Unable to get current conditions');
-    console.error(error);
-
-  });
 
   // OBJECTS OF SCOTTISH DATA 
   var scottishInfo = {
@@ -64,7 +80,7 @@ angular.module('starter.controllers', ['ionic'])
     var lat  = $scope.cities[cityId].lat; //latitude
     var lgn  = $scope.cities[cityId].lgn; //longitude
     var city = $scope.cities[cityId].name; //city name
-    
+
     DataStore.setCity(city);
     DataStore.setLatitude(lat);
     DataStore.setLongitude(lgn);

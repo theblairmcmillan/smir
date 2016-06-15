@@ -1,31 +1,30 @@
 'use strict';
 // CONTACTING FORCASTio AND GETTING CURRENT WEATHER JSON 
-var forecastioWeather = ['$q', '$resource', '$http', 'FORECASTIO_KEY', 
-  function($q, $resource, $http, FORECASTIO_KEY) {
-  var url = 'https://api.forecast.io/forecast/' + FORECASTIO_KEY + '/';
 
-  var weatherResource = $resource(url, {
-    callback: 'JSON_CALLBACK',
-  }, {
-    get: {
-      method: 'JSONP'
+  var forecastioWeather = ['$q', '$resource', '$http', 'FORECASTIO_KEY', 
+    function($q, $resource, $http, FORECASTIO_KEY) {
+    var url = 'https://api.forecast.io/forecast/' + FORECASTIO_KEY + '/';
+
+    // var weatherResource = $resource(url, {
+    //   callback: 'JSON_CALLBACK',
+    // }, {
+    //   get: {
+    //     method: 'JSONP'
+    //   }
+    // });
+
+    return {
+      getCurrentWeather: function(lat, lng) {
+        return $http.jsonp(url + lat + ',' + lng + '?callback=JSON_CALLBACK');
+      }
     }
-  });
-
-  return {
-    //getAtLocation: function(lat, lng) {
-    getCurrentWeather: function(lat, lng) {
-      return $http.jsonp(url + lat + ',' + lng + '?callback=JSON_CALLBACK');
-
-    }
-  }
-}];
+  }];
 
 
 // DEFAULT LIST OF CITIES IN CITIES TAB
 angular.module('starter.services', ['ngResource'])
 .factory('Cities', function() {
-var cities = [
+  var cities = [
     { id: 0, name: 'Miami', lat:25.7877 , lgn: 80.2241 },
     { id: 1, name: 'New York City' ,lat: 40.7127 , lgn: 74.0059 },
     { id: 2, name: 'London' ,lat:51.5072 , lgn: 1.1275 },
@@ -49,24 +48,50 @@ var cities = [
 
 // SETTING MIAMI AS THE DEFAULT LOCATION ON LOAD -> DATASTORE
 factory('DataStore', function() {
-    //create datastore with default values
-    var DataStore = {
-        city:       'Miami',
-        latitude:   25.7877,
-        longitude:  80.2241 };
+  //create datastore with default values
+  var DataStore = {
+    city:       'Miami',
+    latitude:   25.7877,
+    longitude:  80.2241 
+  };
 
-    DataStore.setCity = function (value) {
-       DataStore.city = value;
-    };
+  var hitCount = 0;
 
-    DataStore.setLatitude = function (value) {
-       DataStore.litude = value;
-    };
+  DataStore.getHitCount = function(){
+    return hitCount;
+  };
 
-    DataStore.setLongitude = function (value) {
-       DataStore.longitude = value;
-    };
+  DataStore.setHitCount = function(){
+    hitCount = 1;
+  };
 
-    return DataStore;
+  // get user's current location
+  // DataStore.getLocation = function() {
+  //   console.log("got here");
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(function(data){
+  //       console.log(">>>>>>>", data);
+  //       DataStore.latitude = data.coords.latitude;
+  //       DataStore.longitude = data.coords.longitude;
+  //       return DataStore;
+  //     });
+  //   } else {
+  //     alert("Geolocation is not supported by this browser.");
+  //   }
+  // };
+
+  DataStore.setCity = function (value) {
+    DataStore.city = value;
+  };
+
+  DataStore.setLatitude = function (value) {
+    DataStore.latitude = value;
+  };
+
+  DataStore.setLongitude = function (value) {
+    DataStore.longitude = value;
+  };
+
+  return DataStore;
 })
 .factory('Weather', forecastioWeather);
