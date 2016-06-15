@@ -2,11 +2,11 @@
 <ion-view hide-nav-bar="true">
   <ion-content>
    
-    <ion-header-bar class="bar-dark">
+    <!-- <ion-header-bar class="bar-dark">
       <button class="button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
       <h1 class="title"></h1>
       <button class="button" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">Shuffle</button>
-    </ion-header-bar>
+    </ion-header-bar> -->
     <!--List View-->
     <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
       <ion-item id="lists" ng-repeat="city in cities" item="item" href="#/item/{{item.id}}" ng-click="changeCity({{city.id}})" class="item-remove-animate">{{ city.name }}

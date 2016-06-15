@@ -16,10 +16,10 @@ angular.module('starter.controllers', ['ionic'])
     .then(function(resp) {
       $scope.current = resp.data;
       console.log('GOT CURRENT', $scope.current);
-
-      if($scope.current.currently.temperature <= 45){
+3
+      if($scope.current.currently.temperature <= 46){
         $scope.scottishData = scottishInfo.chankin;
-      } else if($scope.current.currently.temperature >= 46 && $scope.current.currently.temperature <= 72) {
+      } else if($scope.current.currently.temperature >= 47 && $scope.current.currently.temperature <= 72) {
         $scope.scottishData = scottishInfo.naeBad;
       } else {
         $scope.scottishData = scottishInfo.roastin;
